@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
-@ScriptAssert(lang = "javascript", script = "_this.price * _this.quantity >= 10000", message = "총 계가 10,000원이 넘도록 입력해 주세요.")
+//@ScriptAssert(lang = "javascript", script = "_this.price * _this.quantity >= 10000", message = "총 계가 10,000원이 넘도록 입력해 주세요.")
 // 실무에서는 검증 기능이 해당 객체의 범위를 넘어서는 경우도 있기 때문에 @ScriptAssert는 기능이 약해서 권장하지 않음
 public class Item {
 
