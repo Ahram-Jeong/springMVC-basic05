@@ -12,17 +12,18 @@ import javax.validation.constraints.NotNull;
 // 실무에서는 검증 기능이 해당 객체의 범위를 넘어서는 경우도 있기 때문에 @ScriptAssert는 기능이 약해서 권장하지 않음
 public class Item {
 
+    @NotNull(groups = UpdateCheck.class) // 수정 요구사항 추가
     private Long id;
 
-    @NotBlank
+    @NotBlank(groups = {SaveCheck.class, UpdateCheck.class})
     private String itemName;
 
-    @NotNull
-    @Range(min = 1000, max = 1000000)
+    @NotNull(groups = {SaveCheck.class, UpdateCheck.class})
+    @Range(min = 1000, max = 1000000, groups = {SaveCheck.class, UpdateCheck.class})
     private Integer price;
 
-    @NotNull
-    @Max(9999)
+    @NotNull(groups = {SaveCheck.class, UpdateCheck.class})
+    @Max(value = 9999, groups = SaveCheck.class)
     private Integer quantity;
 
     public Item() {
